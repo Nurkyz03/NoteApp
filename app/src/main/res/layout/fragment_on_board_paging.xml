@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#252525"
+    android:paddingHorizontal="30dp"
+    tools:context=".fragments.onBoard.OnBoardPagingFragment">
+
+    <TextView
+        android:id="@+id/txt_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="46dp"
+        android:text="@string/notes"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/potta_one"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieView"
+        android:layout_width="297dp"
+        android:background="@drawable/img_background"
+        android:layout_height="284dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_marginTop="107dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_marginTop="53dp"
+        android:layout_gravity="center"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_marginTop="120dp"
+        android:textColor="#CFCFCF"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="17sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_start"
+        android:layout_width="230dp"
+        android:layout_height="58dp"
+        android:layout_gravity="center"
+        android:text="@string/start"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="21sp"
+        android:visibility="visible"
+        android:background="@drawable/btn_background"
+        android:layout_marginTop="282dp"/>
+
+</FrameLayout>
