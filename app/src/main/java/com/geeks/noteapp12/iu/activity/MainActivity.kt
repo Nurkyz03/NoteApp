@@ -1,14 +1,12 @@
-package com.geeks.noteapp12.activity
+package com.geeks.noteapp12.iu.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.geeks.noteapp12.R
 import com.geeks.noteapp12.databinding.ActivityMainBinding
+import com.geeks.noteapp12.utils.PreferenceHelper
 
 class MainActivity : AppCompatActivity() {
 
