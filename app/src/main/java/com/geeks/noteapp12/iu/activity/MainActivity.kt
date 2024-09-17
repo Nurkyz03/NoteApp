@@ -19,5 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
+
+        val sharedPreferences = PreferenceHelper()
+        sharedPreferences.unit(this)
+        if (sharedPreferences.isOnBoardShown) {
+            navController.navigate(R.id.noteFragment)
+        } else if (!sharedPreferences.isOnBoardShown) {
+            navController.navigate(R.id.onBoardFragment)
+        }
     }
 }
