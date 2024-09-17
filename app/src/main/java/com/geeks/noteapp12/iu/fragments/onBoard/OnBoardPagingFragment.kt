@@ -1,4 +1,4 @@
-package com.geeks.noteapp12.fragments.onBoard
+package com.geeks.noteapp12.iu.fragments.onBoard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -30,13 +30,11 @@ class OnBoardPagingFragment : Fragment() {
             0 -> {
                 txtTitle.text = "Удобство"
                 lottieView.setAnimation(R.raw.lottie1)
-                btnStart.visibility = View.INVISIBLE
                 txtDescription.text = "Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
             }
             1 -> {
                 txtTitle.text = "Организация"
                 lottieView.setAnimation(R.raw.lottie_2)
-                btnStart.visibility = View.INVISIBLE
                 txtDescription.text = "Организуйте заметки по папкам и тегам. Легко находите нужную информацию в любое время."
             }
             2 -> {

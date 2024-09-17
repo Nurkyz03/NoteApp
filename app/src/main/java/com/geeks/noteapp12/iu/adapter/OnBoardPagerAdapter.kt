@@ -1,10 +1,10 @@
-package com.geeks.noteapp12.adapter
+package com.geeks.noteapp12.iu.adapter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.geeks.noteapp12.fragments.onBoard.OnBoardPagingFragment
-import com.geeks.noteapp12.fragments.onBoard.OnBoardPagingFragment.Companion.ARG_ONBOARD_POSITION
+import com.geeks.noteapp12.iu.fragments.onBoard.OnBoardPagingFragment
+import com.geeks.noteapp12.iu.fragments.onBoard.OnBoardPagingFragment.Companion.ARG_ONBOARD_POSITION
 
 class OnBoardPagerAdapter(fragment: Fragment):FragmentStateAdapter(fragment) {
 

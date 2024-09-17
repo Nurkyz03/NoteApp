@@ -1,18 +1,21 @@
-package com.geeks.noteapp12.fragments.onBoard
+package com.geeks.noteapp12.iu.fragments.onBoard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.geeks.noteapp12.R
-import com.geeks.noteapp12.adapter.OnBoardPagerAdapter
+import com.geeks.noteapp12.iu.adapter.OnBoardPagerAdapter
 import com.geeks.noteapp12.databinding.FragmentOnBoardBinding
+import com.geeks.noteapp12.utils.PreferenceHelper
 
 class OnBoardFragment : Fragment() {
 
     private lateinit var binding: FragmentOnBoardBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,18 +42,21 @@ class OnBoardFragment : Fragment() {
                 when (position) {
                     0 -> {
                         binding.txtSkip.visibility = View.VISIBLE
+                        binding.btnStart.visibility = View.INVISIBLE
                         binding.tabLayout1.setBackgroundResource(R.drawable.selected_dot)
                         binding.tabLayout2.setBackgroundResource(R.drawable.default_dot)
                         binding.tabLayout3.setBackgroundResource(R.drawable.default_dot)
                     }
                     1 -> {
                         binding.txtSkip.visibility = View.VISIBLE
+                        binding.btnStart.visibility = View.INVISIBLE
                         binding.tabLayout1.setBackgroundResource(R.drawable.default_dot)
                         binding.tabLayout2.setBackgroundResource(R.drawable.selected_dot)
                         binding.tabLayout3.setBackgroundResource(R.drawable.default_dot)
                     }
                     2 -> {
                         binding.txtSkip.visibility = View.INVISIBLE
+                        binding.btnStart.visibility = View.VISIBLE
                         binding.tabLayout1.setBackgroundResource(R.drawable.default_dot)
                         binding.tabLayout2.setBackgroundResource(R.drawable.default_dot)
                         binding.tabLayout3.setBackgroundResource(R.drawable.selected_dot)
@@ -70,6 +76,12 @@ class OnBoardFragment : Fragment() {
         binding.txtSkip.setOnClickListener {
             if (currentItem < 3)
                 setCurrentItem(currentItem + 2, true)
+        }
+        binding.btnStart.setOnClickListener {
+            val sharedPreferenceHelper = PreferenceHelper()
+            sharedPreferenceHelper.unit(requireContext())
+            sharedPreferenceHelper.isOnBoardShown = true
+            findNavController().navigate(R.id.action_onBoardFragment_to_noteFragment)
         }
     }
 }
