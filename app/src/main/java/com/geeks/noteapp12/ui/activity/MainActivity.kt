@@ -1,4 +1,4 @@
-package com.geeks.noteapp12.iu.activity
+package com.geeks.noteapp12.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

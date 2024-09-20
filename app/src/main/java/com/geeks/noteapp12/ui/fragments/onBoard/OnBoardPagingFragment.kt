@@ -1,4 +1,4 @@
-package com.geeks.noteapp12.iu.fragments.onBoard
+package com.geeks.noteapp12.ui.fragments.onBoard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.geeks.noteapp12.iu.fragments.onBoard
+package com.geeks.noteapp12.ui.fragments.onBoard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.geeks.noteapp12.R
-import com.geeks.noteapp12.iu.adapter.OnBoardPagerAdapter
+import com.geeks.noteapp12.ui.adapter.OnBoardPagerAdapter
 import com.geeks.noteapp12.databinding.FragmentOnBoardBinding
 import com.geeks.noteapp12.utils.PreferenceHelper
 
