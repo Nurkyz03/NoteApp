@@ -1,0 +1,46 @@
+package com.geeks.noteapp12.ui.adapter
+
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.geeks.noteapp12.ui.data.models.NoteModel
+import com.geeks.noteapp12.databinding.ItemNoteBinding
+
+class NoteAdapter : ListAdapter<NoteModel, NoteAdapter.ViewHolder>(DiffCallback()) {
+    class ViewHolder(private var binding: ItemNoteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(item: NoteModel) {
+            binding.txtTitle.text = item.title
+            binding.txtDescription.text = item.description
+            binding.txtDatetime.text = item.dateTime
+            binding.containerNote.setBackgroundColor(Color.parseColor(item.color))
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            ItemNoteBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.onBind(getItem(position))
+    }
+
+    class DiffCallback : DiffUtil.ItemCallback<NoteModel>() {
+        override fun areItemsTheSame(oldItem: NoteModel, newItem: NoteModel): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: NoteModel, newItem: NoteModel): Boolean {
+            return oldItem == newItem
+        }
+    }
+}

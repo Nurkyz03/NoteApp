@@ -1,14 +1,12 @@
-package com.geeks.noteapp12.activity
+package com.geeks.noteapp12.ui.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.geeks.noteapp12.R
 import com.geeks.noteapp12.databinding.ActivityMainBinding
+import com.geeks.noteapp12.utils.PreferenceHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,5 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
+
+        val sharedPreferences = PreferenceHelper()
+        sharedPreferences.unit(this)
+        if (sharedPreferences.isOnBoardShown) {
+            navController.navigate(R.id.noteFragment)
+        } else if (!sharedPreferences.isOnBoardShown) {
+            navController.navigate(R.id.onBoardFragment)
+        }
     }
 }

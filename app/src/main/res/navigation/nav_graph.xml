@@ -7,18 +7,34 @@
 
     <fragment
         android:id="@+id/onBoardFragment"
-        android:name="com.geeks.noteapp12.fragments.onBoard.OnBoardFragment"
+        android:name="com.geeks.noteapp12.ui.fragments.onBoard.OnBoardFragment"
         android:label="fragment_on_board"
-        tools:layout="@layout/fragment_on_board" />
+        tools:layout="@layout/fragment_on_board" >
+        <action
+            android:id="@+id/action_onBoardFragment_to_onBoardPagingFragment"
+            app:destination="@id/onBoardPagingFragment" />
+        <action
+            android:id="@+id/action_onBoardFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardPagingFragment"
-        android:name="com.geeks.noteapp12.fragments.onBoard.OnBoardPagingFragment"
+        android:name="com.geeks.noteapp12.ui.fragments.onBoard.OnBoardPagingFragment"
         android:label="fragment_on_board_paging"
         tools:layout="@layout/fragment_on_board_paging" />
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.geeks.noteapp12.fragments.note.NoteFragment"
+        android:name="com.geeks.noteapp12.ui.fragments.note.NoteFragment"
         android:label="fragment_note"
-        tools:layout="@layout/fragment_note" />
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.geeks.noteapp12.ui.fragments.note.NoteDetailFragment"
+        android:label="fragment_note_detail"
+        tools:layout="@layout/fragment_note_detail" />
 
 </navigation>
