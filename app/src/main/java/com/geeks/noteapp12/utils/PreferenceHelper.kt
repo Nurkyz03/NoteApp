@@ -19,4 +19,7 @@ class PreferenceHelper {
         get() = sharedPreferences.getBoolean("board", false)
         set(value) = sharedPreferences.edit().putBoolean("board", value).apply()
 
+    var isRecyclerViewGrid: Boolean
+        get() = sharedPreferences.getBoolean("recyclerview", false)
+        set(value) = sharedPreferences.edit().putBoolean("recyclerview", value).apply()
 }
