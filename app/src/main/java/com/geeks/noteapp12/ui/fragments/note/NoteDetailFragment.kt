@@ -28,6 +28,8 @@ class NoteDetailFragment : Fragment() {
     private lateinit var binding: FragmentNoteDetailBinding
     private lateinit var dateTime: String
     private lateinit var RVcolor: String
+    private lateinit var savedColor: String
+    private var noteId: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,9 +41,24 @@ class NoteDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        updateNote()
         setDateAndTime()
         setColorDropdown()
         setupListeners()
+    }
+
+    private fun updateNote() {
+        arguments?.let { args ->
+            noteId = args.getInt("noteId", -1)
+        }
+        if (noteId != -1) {
+            val argsNote = App.appDatabase?.noteDao()?.getNoteById(noteId)
+            argsNote?.let { item ->
+                binding.etTitle.setText(item.title)
+                binding.etDescription.setText(item.description)
+                savedColor = item.color
+            }
+        }
     }
 
     private fun setDateAndTime() = with(binding) {
@@ -82,8 +99,14 @@ class NoteDetailFragment : Fragment() {
         btnReady.setOnClickListener {
             val etTitle = binding.etTitle.text.toString()
             val etDescription = binding.etDescription.text.toString()
-            App.appDatabase?.noteDao()
-                ?.insertMode(NoteModel(etTitle, etDescription, dateTime, RVcolor))
+            if (noteId != -1) {
+                val updateNote = NoteModel(etTitle, etDescription, dateTime, savedColor)
+                updateNote.id = noteId
+                App.appDatabase?.noteDao()?.updateNote(updateNote)
+            } else {
+                App.appDatabase?.noteDao()
+                    ?.insertMode(NoteModel(etTitle, etDescription, dateTime, RVcolor))
+            }
             findNavController().navigateUp()
         }
     }
