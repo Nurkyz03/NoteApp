@@ -81,7 +81,7 @@ class OnBoardFragment : Fragment() {
             val sharedPreferenceHelper = PreferenceHelper()
             sharedPreferenceHelper.unit(requireContext())
             sharedPreferenceHelper.isOnBoardShown = true
-            findNavController().navigate(R.id.action_onBoardFragment_to_noteFragment)
+            findNavController().navigate(R.id.action_onBoardFragment_to_signUpFragment)
         }
     }
 }
