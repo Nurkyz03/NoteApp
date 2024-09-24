@@ -82,12 +82,13 @@ class SignUpFragment : Fragment() {
     private fun updateUI(user: FirebaseUser?) {
         val sharedPreferences = PreferenceHelper()
         sharedPreferences.unit(requireContext())
-        if (user != null){
-            findNavController().navigate(R.id.action_signUpFragment_to_noteFragment)
+
+        if (user != null) {
             sharedPreferences.isSignInShowed = true
-        }else{
-            Toast.makeText(requireContext(), "Аутентификация не удалась", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_signUpFragment_to_noteFragment)
+        } else {
             sharedPreferences.isSignInShowed = false
+            Toast.makeText(requireContext(), "Аутентификация не удалась", Toast.LENGTH_SHORT).show()
         }
     }
 }
