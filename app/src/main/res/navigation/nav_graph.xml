@@ -49,5 +49,10 @@
             android:id="@+id/action_signUpFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chatFragment2"
+        android:name="com.geeks.noteapp12.ui.fragments.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
 
 </navigation>
