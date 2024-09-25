@@ -11,6 +11,7 @@ import com.geeks.noteapp12.R
 import com.geeks.noteapp12.ui.adapter.OnBoardPagerAdapter
 import com.geeks.noteapp12.databinding.FragmentOnBoardBinding
 import com.geeks.noteapp12.utils.PreferenceHelper
+import com.google.android.material.tabs.TabLayoutMediator
 
 class OnBoardFragment : Fragment() {
 
@@ -29,6 +30,7 @@ class OnBoardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setUplisteners()
+        tabLayout()
     }
 
     private fun initialize() {
@@ -65,15 +67,6 @@ class OnBoardFragment : Fragment() {
             }
         })
 
-        binding.tabLayout1.setOnClickListener {
-            binding.viewPaper2.setCurrentItem(0, true)
-        }
-        binding.tabLayout2.setOnClickListener {
-            binding.viewPaper2.setCurrentItem(1, true)
-        }
-        binding.tabLayout3.setOnClickListener {
-            binding.viewPaper2.setCurrentItem(2, true)
-        }
         binding.txtSkip.setOnClickListener {
             if (currentItem < 3)
                 setCurrentItem(currentItem + 2, true)
@@ -84,5 +77,14 @@ class OnBoardFragment : Fragment() {
             sharedPreferenceHelper.isOnBoardShown = true
             findNavController().navigate(R.id.action_onBoardFragment_to_signUpFragment)
         }
+    }
+
+    private fun tabLayout() {
+        TabLayoutMediator(binding.tabLayout1, binding.viewPaper2){ _, _ ->
+        }.attach()
+        TabLayoutMediator(binding.tabLayout2, binding.viewPaper2){ _, _ ->
+        }.attach()
+        TabLayoutMediator(binding.tabLayout3, binding.viewPaper2){ _, _ ->
+        }.attach()
     }
 }
